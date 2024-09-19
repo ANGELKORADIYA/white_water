@@ -1,21 +1,21 @@
-## whiter water - stock market prediction
+# whiter water - stock market prediction
 
-### Description
+# Description
 
 not use any ai algo but use some basic math to predict the stock market
 
-### install
+# install
 
-# python3
-# for basic : pip install pandas numpy matplotlib yfinance mplfinance
-# for use models : pip install pandas numpy matplotlib yfinance mplfinance scikit-learn tensorflow keras
+## python3
+## for basic : pip install pandas numpy matplotlib yfinance mplfinance
+## for use models : pip install pandas numpy matplotlib yfinance mplfinance scikit-learn tensorflow keras
 
 
-### How to run
+# How to run
 # python nifty50.py
 
 
-### Documentation
+# Documentation
 - nifty50.ipynb
     - trade_history(ticker=nifty50_tickers_ns)
     - trade_history_monthly(dataset="trade_history",ticker=nifty50_tickers_ns)
