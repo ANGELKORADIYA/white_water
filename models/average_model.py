@@ -156,6 +156,8 @@ def expected_buy_price(show_bool=0 ,start_date="2024-01-01", download_bool=0,tic
     return trade_history_df
 
 def alert_from_average(ticker=["tatasteel.ns"], show_bool=0, download_bool=0, start_date="2024-01-01", end_date="2024-12-31", interval=["1d", "1mo"], filename=["time_series.csv", "time_series_monthly.csv"], period="2d"):
+    print("wait...")
+    print("10 seconds for model to execute")
     data = []
     average_buy = expected_buy_price(show_bool, start_date, download_bool, ticker, end_date, interval, filename)
     for i in range(len(ticker)):

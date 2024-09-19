@@ -5,8 +5,8 @@ import mplfinance as mpf
 import numpy as np
 from utility.fetch_ import download_stock_data
 def trade_history_2(show_bool=0,download_bool=0,ticker=["tatasteel.ns"], start_date="2024-01-01", end_date="2024-12-31", interval=["1d","1mo"] , filename=["time_series.csv","time_series_monthly.csv"]):
-    for i in range(len(ticker)):
-        dd,dm = download_stock_data(download_bool,ticker[i], start_date, end_date, interval, filename)
+    for j in range(len(ticker)):
+        dd,dm = download_stock_data(download_bool,ticker[j], start_date, end_date, interval, filename)
 
         trade_history = []
 
@@ -70,21 +70,21 @@ def trade_history_2(show_bool=0,download_bool=0,ticker=["tatasteel.ns"], start_d
             plt.show()
 
         # Save trade history to CSV
-        trade_history_df.to_csv("./database/"+ticker[i]+'/trade_history_2.csv', index=False)
-        print(f"Exported trade history to ./database/{ticker[i]}/trade_history_2.csv")
+        trade_history_df.to_csv("./database/"+ticker[j]+'/trade_history_2.csv', index=False)
+        print(f"Exported trade history to ./database/{ticker[j]}/trade_history_2.csv")
 
 
 
 
 def trade_history_monthly(dataset = "trade_history_2",show_bool=0,download_bool=0,ticker=["tatasteel.ns"], start_date="2024-01-01", end_date="2024-12-31", interval=["1d","1mo"] , filename=["time_series.csv","time_series_monthly.csv"]):
-    for i in range(len(ticker)):
+    for j in range(len(ticker)):
         trade_history_df = pd.DataFrame()
         try:
-            trade_history_df=pd.read_csv(f'./database/{ticker[i]}/{dataset}.csv')
+            trade_history_df=pd.read_csv(f'./database/{ticker[j]}/{dataset}.csv')
         except:
-            print(f"no file found thats why im creating ./database/{ticker[i]}/trade_history_2.csv")
-            trade_history_2(show_bool,download_bool,ticker[i], start_date, end_date, interval, filename)
-            trade_history_df = pd.read_csv(f'./database/{ticker[i]}/trade_history_2.csv')
+            print(f"no file found at ./database/{ticker[j]}/trade_history_2.csv thats why im creating ./database/{ticker}/trade_history_2.csv")
+            trade_history_2(show_bool,download_bool,ticker, start_date, end_date, interval, filename)
+            trade_history_df = pd.read_csv(f'./database/{ticker[j]}/trade_history_2.csv')
             dataset = "trade_history_2"
         trade_history_df['Buy Month'] = pd.to_datetime(trade_history_df['Buy Date']).dt.to_period('M')
         # Group by the Buy Month and calculate the total number of trades and profit for each month
@@ -95,8 +95,8 @@ def trade_history_monthly(dataset = "trade_history_2",show_bool=0,download_bool=
         ).reset_index()
 
         # Save monthly trade statistics to CSV for further analysis
-        monthly_trades.to_csv("./database/"+ticker[i]+'/mon_'+dataset+'.csv', index=False)
-        print(f"Exported trade history to ./database/{ticker[i]}/mon_"+dataset+".csv")
+        monthly_trades.to_csv("./database/"+ticker[j]+'/mon_'+dataset+'.csv', index=False)
+        print(f"Exported trade history to ./database/{ticker[j]}/mon_"+dataset+".csv")
         # Optionally, plot the number of trades and profit per month
         if show_bool:
             plt.figure(figsize=(10, 6))

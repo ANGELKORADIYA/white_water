@@ -81,7 +81,7 @@ def download_stock_data(download_bool=0, ticker="tatasteel.ns", start_date="2024
     for i, freq in enumerate(interval):
         stock_data = yf.download(ticker, start=start_date, end=end_date, interval=freq)
         if stock_data.empty:
-            return data
+            return exit()
         
         stock_data.to_csv(folder_path + filename[i])
         print(f"Data saved to {filename[i]}")

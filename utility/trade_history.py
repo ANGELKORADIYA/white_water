@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 from utility.fetch_ import download_stock_data
 
 def trade_history(ticker=["tatasteel.ns"],show_bool=0,download_bool=0, start_date="2024-01-01", end_date="2024-12-31", interval=["1d","1mo"] , filename=["time_series.csv","time_series_monthly.csv"]):
-    for i in range(len(ticker)):
-        dd , dm = download_stock_data(download_bool,ticker[i], start_date, end_date, interval, filename)
+    for j in range(len(ticker)):
+        dd , dm = download_stock_data(download_bool,ticker[j], start_date, end_date, interval, filename)
         buy_price = []
         trade_history = []
         for i in range(1, len(dm)):
@@ -43,8 +43,8 @@ def trade_history(ticker=["tatasteel.ns"],show_bool=0,download_bool=0, start_dat
         #         empty_row = pd.Series([np.nan] * trade_history_df.shape[1], index=trade_history_df.columns)
         #         trade_history_df = pd.concat([trade_history_df.iloc[:i+1], empty_row.to_frame().T, trade_history_df.iloc[i+1:]], ignore_index=True)
 
-        trade_history_df.to_csv("./database/"+ticker[i]+'/trade_history.csv',index=False)
-        print(f"Exported trade history to ./database/{ticker[i]}/trade_history.csv")
+        trade_history_df.to_csv("./database/"+ticker[j]+'/trade_history.csv',index=False)
+        print(f"Exported trade history to ./database/{ticker[j]}/trade_history.csv")
 
         if not trade_history_df.empty and show_bool:
             plt.figure(figsize=(10, 6))
