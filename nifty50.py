@@ -1,0 +1,9 @@
+from utility.fetch_ import nifty50_tickers_ns
+from utility.trade_history import trade_history 
+from models.average_model import expected_buy_price, alert_from_average
+from utility.checkingswingtrading import trade_history_monthly
+
+trade_history(ticker=nifty50_tickers_ns)
+trade_history_monthly(dataset="trade_history",ticker=nifty50_tickers_ns)
+trade_history_monthly(ticker=nifty50_tickers_ns) 
+alert_from_average(ticker=nifty50_tickers_ns)
