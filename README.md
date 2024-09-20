@@ -45,6 +45,10 @@ not use any ai algo but use some basic math to predict the stock market
     - mymodel.py
         - LSTM
         - generates a reportss in ./database/mymodelprediction.csv
+    
+    - lrg.py
+        - gradient descent and predict (linear regression)
+        - generates a reportss in ./database/linear_regression.csv
 
 
 - fetch_.download_stock_data - download and preprocess csv
