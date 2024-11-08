@@ -50,8 +50,17 @@ not use any ai algo but use some basic math to predict the stock market
         - gradient descent and predict (linear regression)
         - generates a reportss in ./database/linear_regression.csv
 
+- frqbased.ipynb
+    -results441.csv
+
+- tradbook.ipynb 
+    - todaydata.csv
+    -live{i} - history paper trade 
 
 - fetch_.download_stock_data - download and preprocess csv
 - checkingswingtrading.trade_history_2 - trade history with buy and sell signals
 - checkingswingtrading.trade_history_monthly - trade history with buy and sell signals
 - average_model.alert_from_average - alert from average
+- hits.frqbased - max hits price finding
+- hits.tradebook - papertrading
+- indicator.temp - rsi & ema based alert

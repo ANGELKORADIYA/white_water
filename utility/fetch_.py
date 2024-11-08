@@ -59,7 +59,7 @@ nifty50_tickers_ns = [
 
 def read_and_preprocess_csv(filepath):
     df = pd.read_csv(filepath)
-    df.rename(index={0: 'Date', 1: 'Open', 2: 'High', 3: 'Low', 4: 'Close',5:'Adj Close', 6: 'Volume'}, inplace=True)
+    # df.rename(index={0: 'Date', 1: 'Open', 2: 'High', 3: 'Low', 4: 'Close',5:'Adj Close', 6: 'Volume'}, inplace=True)
     df['Date'] = pd.to_datetime(df['Date'])
     df.sort_values('Date', ascending=True, inplace=True)
     return df
@@ -79,7 +79,7 @@ def download_stock_data(download_bool=0, ticker="tatasteel.ns", start_date="2024
     os.makedirs(folder_path, exist_ok=True)
 
     for i, freq in enumerate(interval):
-        stock_data = yf.download(ticker, start=start_date, end=end_date, interval=freq)
+        stock_data = yf.download(ticker, start=start_date, end=end_date, interval=freq )
         if stock_data.empty:
             return exit()
         
