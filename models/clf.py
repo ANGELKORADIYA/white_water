@@ -62,10 +62,10 @@ def stock_prediction(ticker=nifty50_tickers_ns, start_date="2024-01-01", end_dat
                 stock_data.at[stock_data.index[i], 'Target_Price'] = stock_data['Close'].iloc[i] * 0.90  # 10% stop-loss during downturn
 
         # Save the generated signals and data to a CSV file
-        if not os.path.exists(f"./database/@trade_reports"):
-            os.makedirs(f"./database/@trade_reports")
-        stock_data.to_csv(f"./database/@trade_reports/{ticker[j]}.csv", index=False)
-
+        if not os.path.exists(f"./trade_reports"):
+            os.makedirs(f"./trade_reports")
+        stock_data.to_csv(f"./trade_reports/{ticker[j]}.csv", index=False)
+    print("Storying At ./trade_reports")
     return stock_data
 
 # Example usage

@@ -40,7 +40,7 @@ not use any ai algo but use some basic math to predict the stock market
 - usemodel.ipynb
     - clf.py
         - classification_report , RandomForestClassifier
-        - generates a reportss in ./database/trade_reports folder
+        - generates a reportss in ./trade_reports folder
 
     - mymodel.py
         - LSTM

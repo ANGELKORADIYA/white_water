@@ -80,5 +80,6 @@ def stock_prediction(ticker=nifty50_tickers_ns, start_date="2024-01-01", end_dat
         # Save predictions to CSV
     mymodelprediction = pd.DataFrame(mymodelprediction_df, columns=['Ticker', 'Predicted High', 'Predicted Low'])
     mymodelprediction.to_csv('./database/mymodelprediction.csv', index=False)
+    print("storying at ./database/mymodelprediction.csv")
     return model, scaler, df, predicted_high, predicted_low
 

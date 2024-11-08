@@ -89,4 +89,4 @@ def predict_today(ticker=nifty50_tickers_ns, learning_rate=0.01, epochs=50000, s
 
     linearregression_df = pd.DataFrame(linearregression, columns=["ticker", "predicted_next_day_high", "actual_next_day_high", "predicted_next_day_low", "actual_next_day_low"])
     linearregression_df.to_csv("./database/linear_regression.csv", index=False)
-    print(f"CSV of linear regression './database/linear_regression.csv' saved successfully.")
+    print(f"CSV of linear regression ./database/linear_regression.csv saved successfully.")
